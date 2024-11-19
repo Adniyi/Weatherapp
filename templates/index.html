@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Weather App</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="head">
+                <h1>Weather App</h1>
+                <div class="input">
+                    <form action="" method="post" class="input_field">
+                        <input type="text" name="field" id="field" class="city-input">
+                        <button type="submit" class="addcity-btn">Add City</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <br>
+        {% for weather in weather_id %}
+            <div class="content">
+                <h1>Hey</h1>
+                <figure class="image">
+                    <img src="http://openweathermap.org/img/w/{{weather.icon}}.png" alt="weather-icon">
+                </figure>
+                <p>
+                    <h2>Hey</h2>
+                    <span class="title">City: {{weather.city}}</span>
+                    <br>
+                    <span class="subtitle">Temperature: {{weather.temp}} degF</span><br>
+                    <span class="subtitle">Minimum temperature: {{weather.temp_min}} degF</span><br>
+                    <span class="subtitle">Maximum temperature: {{weather.temp_max}} degF</span><br>
+                    <span class="subtitle">What it Feels like: {{weather.feels_like}} degF</span><br>
+                    <span class="subtitle">Pressuer: {{weather.pressure}}P</span><br>
+                    <span class="subtitle">Humidity: {{weather.humidity}}</span>
+                    <br>Weather Description: {{weather.description}}
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
